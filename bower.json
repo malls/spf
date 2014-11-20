@@ -1,3 +1,5 @@
 {
-    "name": "spf"
+  "name": "spf",
+  "directory": "public/bower_components",
+  "dependencies": {}
 }

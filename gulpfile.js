@@ -5,7 +5,9 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     sass = require('gulp-sass'),
     reload = require('gulp-livereload'), //do we need both?
-    mocha = require('gulp-mocha');
+    mocha = require('gulp-mocha'),
+    inject = require('gulp-inject'),
+    bowerFiles = require('main-bower-files');
 
 gulp.task('default', function() {
     console.log('run gulp develop!');
@@ -16,16 +18,23 @@ gulp.task('lint', function () {
     .pipe(jshint());
 });
 
+gulp.task('inject', function () {
+  var target = gulp.src('./assets/views/layout.jade');
+  var sources = gulp.src(['./public/**/*.js', './public/stylesheets/*.css'], {read: false});
+  return target.pipe(inject(sources))
+    .pipe(gulp.dest('./public/views'));
+});
+
 gulp.task('watch', function() {
     reload.listen();
     gulp.watch('public/**').on('change', reload.changed);
 });
 
 gulp.task('sass', function() {
-  gulp.src('sass/*.scss')
+  gulp.src('./assets/styles/*.scss')
     .pipe(watch())
     .pipe(sass())
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('./public/stylesheets'))
     .pipe(reload());
 });
 
@@ -36,7 +45,7 @@ gulp.task('test', function () {
 
 gulp.task('develop', function () {
   nodemon({ script: 'app.js', ext: 'js jade scss'})
-    .on('change', ['lint', 'test', 'watch'])
+    .on('change', ['lint', 'test', 'sass', 'index', 'watch'])
     .on('restart', function () {
       console.log('restarted!');
     });

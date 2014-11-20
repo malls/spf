@@ -1,9 +1,11 @@
 websocket and html5 based video chat app in the works
 
-to develop
+to install
 
 * ```npm install -g bower```
 * ```npm install -g gulp```
+* ```npm install```
+* ```bower install```
 
 to test
 * ```gulp test```
