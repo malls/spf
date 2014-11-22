@@ -10,7 +10,7 @@ var routes = require('./app/routes/index');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'assets/views'));
+app.set('views', path.join(__dirname, 'src'));
 app.set('view engine', 'jade');
 
 app.use(favicon()); // make this tight as fuck!!

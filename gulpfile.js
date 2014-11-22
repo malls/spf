@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     reload = require('gulp-livereload'), //do we need both?
     mocha = require('gulp-mocha'),
     inject = require('gulp-inject'),
+    watch = require('gulp-watch'),
     bowerFiles = require('main-bower-files');
 
 gulp.task('default', function() {
@@ -20,7 +21,7 @@ gulp.task('lint', function () {
 
 gulp.task('inject', function () {
   var target = gulp.src('./assets/views/layout.jade');
-  var sources = gulp.src(['./public/**/*.js', './public/stylesheets/*.css'], {read: false});
+  var sources = gulp.src(['./public/scripts/*.js', './public/stylesheets/*.css'], {read: false});
   return target.pipe(inject(sources))
     .pipe(gulp.dest('./public/views'));
 });
@@ -45,7 +46,7 @@ gulp.task('test', function () {
 
 gulp.task('develop', function () {
   nodemon({ script: 'app.js', ext: 'js jade scss'})
-    .on('change', ['lint', 'test', 'sass', 'index', 'watch'])
+    .on('change', ['lint', 'test', 'sass', /* 'inject', */ 'watch'])
     .on('restart', function () {
       console.log('restarted!');
     });

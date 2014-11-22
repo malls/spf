@@ -3,18 +3,10 @@ html
 	head
 		title= title
 		//- inject:css
-		link(rel="stylesheet", href="/public/stylesheets/style.css")
-		link(rel="stylesheet", href="/public/lib/socket.io/examples/chat/public/style.css")
+		link(rel="stylesheet", href="stylesheets/style.css")
 		//- endinject
 	body
+		script(src="/scripts/media.js")
 		block content
 		//- inject:js
-		script(src="/public/lib/socket.io/index.js")
-		script(src="/public/lib/socket.io/lib/client.js")
-		script(src="/public/lib/socket.io/lib/index.js")
-		script(src="/public/lib/socket.io/lib/namespace.js")
-		script(src="/public/lib/socket.io/lib/socket.js")
-		script(src="/public/lib/socket.io/test/socket.io.js")
-		script(src="/public/lib/socket.io/examples/chat/index.js")
-		script(src="/public/lib/socket.io/examples/chat/public/main.js")
 		//- endinject
