@@ -1,0 +1,24 @@
+doctype html
+html
+	head
+		title= title
+		//- bower:css
+		//- endinject
+
+		//- inject:css
+		//- endinject
+	body
+		block content
+		//- bower:js
+		//- endinject
+
+		//- inject:js
+		script(src="/public/lib/socket.io/index.js")
+		script(src="/public/lib/socket.io/lib/client.js")
+		script(src="/public/lib/socket.io/lib/index.js")
+		script(src="/public/lib/socket.io/lib/namespace.js")
+		script(src="/public/lib/socket.io/lib/socket.js")
+		script(src="/public/lib/socket.io/test/socket.io.js")
+		script(src="/public/lib/socket.io/examples/chat/index.js")
+		script(src="/public/lib/socket.io/examples/chat/public/main.js")
+		//- endinject

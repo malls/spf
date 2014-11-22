@@ -5,12 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var routes = require('./app/routes/index');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'assets/views'));
 app.set('view engine', 'jade');
 
 app.use(favicon()); // make this tight as fuck!!
@@ -55,7 +55,7 @@ app.use(function(err, req, res, next) {
 
 var debug = require('debug')('spf');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4200);
 
 var server = app.listen(app.get('port'), function() {
   debug('Now listening on port ' + server.address().port);
