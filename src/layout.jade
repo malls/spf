@@ -3,10 +3,11 @@ html
 	head
 		title= title
 		//- inject:css
-		link(rel="stylesheet", href="stylesheets/style.css")
+		link(rel="stylesheet", href="styles/style.css")
 		//- endinject
 	body
 		script(src="/scripts/media.js")
+		script(src="/scripts/socket.io.js")
 		block content
 		//- inject:js
 		//- endinject

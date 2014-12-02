@@ -9,9 +9,11 @@ html
 		//- endinject
 	body
 		block content
+        script(src='/socket.io/socket.io.js')
 		//- bower:js
 		//- endinject
 
 		//- inject:js
 		script(src="/public/scripts/media.js")
+		script(src="/public/scripts/socket.io.js")
 		//- endinject

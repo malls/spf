@@ -1,5 +1,9 @@
 {
   "name": "spf",
   "directory": "public/bower_components",
-  "dependencies": {}
+  "dependencies": {
+    "luck": "git://github.com/malls/luck.js",
+    "jquery": "~2.1.1",
+    "socket.io": "*"
+  }
 }
